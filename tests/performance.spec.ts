@@ -1,8 +1,3 @@
-// performance.spec.ts
-// Playwright + Lighthouse integration for performance testing OrangeHRM critical user flow
-// Run with: npx playwright test tests/performance.spec.ts
-
-
 import { test, expect, chromium } from '@playwright/test';
 let lighthouse: typeof import('lighthouse');
 const fs = require('fs');
@@ -48,8 +43,8 @@ test.describe('Lighthouse Performance Test: OrangeHRM Login', () => {
         });
         // Save reports and process results if defined
         if (result && result.report && result.lhr && result.lhr.categories && result.lhr.audits) {
-            fs.writeFileSync('lighthouse-report.html', result.report[0]);
-            fs.writeFileSync('lighthouse-report.json', result.report[1]);
+            fs.writeFileSync('test-results/Lighthouse-reports/lighthouse-report.html', result.report[0]);
+            fs.writeFileSync('test-results/Lighthouse-reports/lighthouse-report.json', result.report[1]);
             // Extract scores and metrics
             const perfScore = (result.lhr.categories.performance.score ?? 0) * 100;
             const audits = result.lhr.audits;
@@ -63,7 +58,7 @@ test.describe('Lighthouse Performance Test: OrangeHRM Login', () => {
             console.log('FCP:', audits['first-contentful-paint'].numericValue, 'ms');
             console.log('LCP:', audits['largest-contentful-paint'].numericValue, 'ms');
             console.log('TTI:', audits['interactive'].numericValue, 'ms');
-            console.log('Full report: lighthouse-report.html');
+            console.log('Full report: test-results/Lighthouse-reports/lighthouse-report.html');
         } else {
             throw new Error('Lighthouse result is undefined or incomplete.');
         }
