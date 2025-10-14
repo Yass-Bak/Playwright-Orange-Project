@@ -1,15 +1,15 @@
 import { test, expect } from '@playwright/test';
 import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
+dotenv.config({ path: require('path').resolve(__dirname, '../.env') });
 
-// Update these credentials to match your MySQL Workbench setup
 const dbConfig = {
-    host: 'localhost',
-    port: 3307,
-    user: 'root', // <-- replace with your MySQL username
-    password: 'Yassine_1144!', // <-- replace with your MySQL password
-    database: 'sakila',
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT ? Number(process.env.DB_PORT) : 3306,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
 };
-//jdbc:mysql://localhost:3307/?user=root
 test.describe('Sakila Database Tests', () => {
     test('Actor table has data', async () => {
         const connection = await mysql.createConnection(dbConfig);
