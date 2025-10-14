@@ -23,7 +23,15 @@ A comprehensive end-to-end testing project for the Orange web application using 
 
 ## Project Overview
 
-This project leverages Playwright for automated browser testing and will integrate Playwright MCP for advanced model-based testing and context management. It is designed to ensure robust quality assurance for the Orange web application.
+This project leverages Playwright for:
+
+- **End-to-End (E2E) UI Testing**: Automated browser tests for critical user flows in the OrangeHRM demo web application.
+- **API Testing**: Automated tests for public APIs (e.g., JSONPlaceholder) to ensure backend reliability.
+- **Database Testing**: Integration tests using MySQL (Sakila sample DB) to validate data integrity and queries.
+- **Performance Testing**: Automated performance audits using Lighthouse, with budgets and KPIs for web performance.
+- **Playwright MCP**: Ready for advanced model-based testing and context management.
+
+The project ensures robust quality assurance across UI, API, database, and performance layers.
 
 ## Project Structure
 
@@ -37,8 +45,10 @@ This project leverages Playwright for automated browser testing and will integra
 │   └── test-1-test-chromium/
 │       └── error-context.md
 └── tests/
-    ├── example.spec.ts
-    └── orange.spec.ts
+   ├── api.spec.ts         # API tests (JSONPlaceholder)
+   ├── db.spec.ts          # Database tests (MySQL/Sakila)
+   ├── orange.spec.ts      # E2E UI tests (OrangeHRM)
+   └── performance.spec.ts # Lighthouse performance tests
 ```
 
 - **package.json**: Project dependencies and scripts.
@@ -102,7 +112,61 @@ npx playwright show-report
 
 ![Report Screenshot](https://playwright.dev/img/report.png)
 
-## Writing & Organizing Tests
+## API Testing
+
+API tests are located in `tests/api.spec.ts` and use Playwright's APIRequestContext to validate endpoints like JSONPlaceholder. Example:
+
+```ts
+import { test, expect } from "@playwright/test";
+test("GET /posts returns a list of posts", async ({ request }) => {
+  const response = await request.get(
+    "https://jsonplaceholder.typicode.com/posts"
+  );
+  expect(response.ok()).toBeTruthy();
+  const posts = await response.json();
+  expect(Array.isArray(posts)).toBeTruthy();
+});
+```
+
+## Database Testing
+
+Database tests are in `tests/db.spec.ts` and use MySQL (Sakila sample DB) via `mysql2/promise`. DB credentials are managed securely in a `.env` file. Example:
+
+```ts
+import mysql from "mysql2/promise";
+import * as dotenv from "dotenv";
+dotenv.config();
+// ...connect and run queries...
+```
+
+## Performance Testing (Lighthouse)
+
+Performance tests are in `tests/performance.spec.ts` and use Lighthouse to audit web performance. KPIs and budgets are enforced automatically. To run and view the report:
+
+```sh
+npm run lh:report
+```
+
+This generates `lighthouse-report.html` and opens it automatically.
+
+### Performance KPIs Explained
+
+- **FCP (First Contentful Paint):** Time until the first text/image is visible. Lower is better.
+- **LCP (Largest Contentful Paint):** Time until the main content is visible. Lower is better.
+- **TTI (Time to Interactive):** Time until the page is fully usable. Lower is better.
+- **Performance Score:** 0–100 score summarizing overall web performance.
+
+Performance budgets are set in the test file. If a KPI exceeds its budget, the test fails.
+
+## Load Testing (JMeter, k6, Gatling)
+
+This project focuses on browser, API, DB, and web performance testing. For large-scale load testing (simulating many users or stressing APIs), consider:
+
+- **JMeter**: Java-based, GUI/CLI, protocol-level load testing.
+- **k6**: JavaScript, CLI, modern API load testing.
+- **Gatling**: Scala, code-centric, advanced HTTP load testing.
+
+These tools are not included by default but can be integrated if needed.
 
 - Add new test files in the `tests/` directory.
 - Use Playwright's [test API](https://playwright.dev/docs/test-api-testing) for writing and organizing tests.
@@ -131,6 +195,17 @@ test("homepage has title", async ({ page }) => {
 - Example screenshot:
 
 ![Test Failure Screenshot](https://playwright.dev/img/screenshot.png)
+
+## Environment Variables
+
+Database credentials and other secrets are managed in a `.env` file (not committed to version control). Example:
+
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_DATABASE=sakila
+```
 
 ## Useful Commands
 

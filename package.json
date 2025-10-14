@@ -2,7 +2,9 @@
   "name": "palywright---pomtest",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lh:report": "npx playwright test tests/performance.spec.ts && npx open lighthouse-report.html"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -10,7 +12,9 @@
   "devDependencies": {
     "@playwright/test": "^1.55.1",
     "@types/node": "^24.6.2",
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.2.3",
+    "lighthouse": "^12.8.2",
+    "playwright-lighthouse": "^4.0.0"
   },
   "dependencies": {
     "mysql2": "^3.15.2"
