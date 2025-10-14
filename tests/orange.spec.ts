@@ -8,11 +8,6 @@ test.afterEach(async ({ page }, testInfo) => {
             body: Buffer.from(domSnapshot, 'utf-8'),
             contentType: 'text/html',
         });
-        // Attach screenshot (redundant if Playwright already does, but ensures it's present)
-        if (page.screenshot) {
-            const screenshot = await page.screenshot();
-            await testInfo.attach('Screenshot', { body: screenshot, contentType: 'image/png' });
-        }
     }
     await page.close();
 
