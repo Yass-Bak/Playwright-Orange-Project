@@ -1,4 +1,5 @@
 import { test, expect, chromium } from "@playwright/test";
+
 // Dynamically import Lighthouse for performance auditing
 let lighthouse: typeof import("lighthouse");
 const fs = require("fs");
@@ -42,11 +43,7 @@ test.describe("Lighthouse Performance Test: OrangeHRM Login", () => {
         });
         // Save reports and process results if defined
         if (
-            result &&
-            result.report &&
-            result.lhr &&
-            result.lhr.categories &&
-            result.lhr.audits
+            result && result.report && result.lhr && result.lhr.categories && result.lhr.audits
         ) {
             fs.writeFileSync(
                 "test-results/Lighthouse-reports/lighthouse-report.html",
