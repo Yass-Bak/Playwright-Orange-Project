@@ -1,9 +1,10 @@
 name: Playwright Tests
+
 on:
-  push:
-    branches: [ main, master ]
-  pull_request:
-    branches: [ main, master ]
+  schedule:
+    - cron: '0 0 * * *' # Every day at midnight
+  workflow_dispatch:
+
 jobs:
   test:
     timeout-minutes: 60
@@ -19,9 +20,31 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: npx playwright test
-    - uses: actions/upload-artifact@v4
-      if: ${{ !cancelled() }}
+    - name: Generate Allure Report
+      if: always()
+      run: npm run report -- --clean -o allure-report
+      continue-on-error: true # In case report generation fails, don't fail the job if tests passed? Actually report generation usually needs history. 
+      # For simple setup:
+      # run: npx allure generate ./allure-results --clean -o allure-report
+
+    - name: Deploy to Netlify
+      if: always()
+      uses: nwtgck/actions-netlify@v2.0
       with:
-        name: playwright-report
-        path: playwright-report/
+        publish-dir: './allure-report'
+        production-branch: main
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        deploy-message: "Deploy from GitHub Actions"
+        enable-pull-request-comment: false
+        enable-commit-comment: true
+        overwrites-pull-request-comment: true
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-report
+        path: allure-report/
         retention-days: 30

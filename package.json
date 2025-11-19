@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "lh:report": "npx playwright test tests/performance.spec.ts && npx open lighthouse-report.html"
+    "lh:report": "npx playwright test tests/performance.spec.ts && npx open lighthouse-report.html",
+    "test": "npx playwright test",
+    "report": "node generate_report.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +14,8 @@
   "devDependencies": {
     "@playwright/test": "^1.56.0",
     "@types/node": "^24.6.2",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.2",
     "dotenv": "^17.2.3",
     "lighthouse": "^12.8.2",
     "playwright-lighthouse": "^4.0.0"
