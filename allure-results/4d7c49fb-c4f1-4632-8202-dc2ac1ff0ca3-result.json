@@ -1,0 +1,104 @@
+{
+  "uuid": "4d7c49fb-c4f1-4632-8202-dc2ac1ff0ca3",
+  "historyId": "User Registration on Demo Site:Registration form validation",
+  "fullName": "User Registration on Demo Site: Registration form validation",
+  "name": "Registration form validation",
+  "status": "passed",
+  "statusDetails": {},
+  "stage": "finished",
+  "start": 1763536356379,
+  "stop": 1763536367429,
+  "steps": [
+    {
+      "name": "Beforeundefined",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536356379,
+      "stop": 1763536357746,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Given I navigate to the demo site homepage",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536357746,
+      "stop": 1763536363481,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "When I skip the initial sign-in",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536363481,
+      "stop": 1763536364118,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I submit the registration form without filling any data",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536364118,
+      "stop": 1763536365948,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Then I should see validation errors",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536365948,
+      "stop": 1763536366958,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Afterundefined",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536366958,
+      "stop": 1763536367429,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "labels": [
+    {
+      "name": "tag",
+      "value": "smoke"
+    },
+    {
+      "name": "tag",
+      "value": "registration"
+    },
+    {
+      "name": "tag",
+      "value": "validation"
+    },
+    {
+      "name": "suite",
+      "value": "User Registration on Demo Site"
+    },
+    {
+      "name": "feature",
+      "value": "User Registration on Demo Site"
+    }
+  ],
+  "links": []
+}

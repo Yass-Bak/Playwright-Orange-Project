@@ -1,0 +1,168 @@
+{
+  "uuid": "03ebdaf3-06a1-4f21-808a-0db51cbe8891",
+  "historyId": "User Registration on Demo Site:Register users with different skill sets",
+  "fullName": "User Registration on Demo Site: Register users with different skill sets",
+  "name": "Register users with different skill sets",
+  "status": "failed",
+  "statusDetails": {},
+  "stage": "finished",
+  "start": 1763536953822,
+  "stop": 1763536990900,
+  "steps": [
+    {
+      "name": "Before (Setup)",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536953822,
+      "stop": 1763536954504,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Given I navigate to the demo site homepage",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536954504,
+      "stop": 1763536959516,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "When I skip the initial sign-in",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536959516,
+      "stop": 1763536960073,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I fill in the registration form with the following details:",
+      "status": "failed",
+      "statusDetails": {
+        "message": "Error: function timed out, ensure the promise resolves within 30000 milliseconds",
+        "trace": "Error: function timed out, ensure the promise resolves within 30000 milliseconds\n    at Timeout.<anonymous> (C:\\Users\\souna\\Desktop\\Orange\\node_modules\\@cucumber\\cucumber\\src\\time.ts:52:14)\n    at listOnTimeout (node:internal/timers:608:17)\n    at processTimers (node:internal/timers:543:7)"
+      },
+      "stage": "finished",
+      "start": 1763536960073,
+      "stop": 1763536990421,
+      "steps": [],
+      "attachments": [
+        {
+          "name": "Attachment 1",
+          "source": "88e31db8-9376-4993-968d-f16f103b2429-attachment.png",
+          "type": "image/png"
+        }
+      ],
+      "parameters": []
+    },
+    {
+      "name": "And I select gender \"Female\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536990421,
+      "stop": 1763536990421,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I select skills \"Analytics\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536990421,
+      "stop": 1763536990421,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I choose a password \"TestPass123\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536990421,
+      "stop": 1763536990421,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I confirm the password \"TestPass123\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536990421,
+      "stop": 1763536990421,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I submit the registration form",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536990421,
+      "stop": 1763536990421,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Then I should be redirected to the widgets page",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536990421,
+      "stop": 1763536990421,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "After (Teardown)",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536990421,
+      "stop": 1763536990900,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "labels": [
+    {
+      "name": "tag",
+      "value": "regression"
+    },
+    {
+      "name": "tag",
+      "value": "registration"
+    },
+    {
+      "name": "suite",
+      "value": "User Registration on Demo Site"
+    },
+    {
+      "name": "feature",
+      "value": "User Registration on Demo Site"
+    },
+    {
+      "name": "parentSuite",
+      "value": "BDD Tests (Cucumber)"
+    }
+  ],
+  "links": []
+}

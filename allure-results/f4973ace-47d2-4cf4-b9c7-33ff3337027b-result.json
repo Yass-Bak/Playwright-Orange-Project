@@ -1,0 +1,108 @@
+{
+  "uuid": "f4973ace-47d2-4cf4-b9c7-33ff3337027b",
+  "historyId": "User Registration on Demo Site:Registration form validation",
+  "fullName": "User Registration on Demo Site: Registration form validation",
+  "name": "Registration form validation",
+  "status": "passed",
+  "statusDetails": {},
+  "stage": "finished",
+  "start": 1763536953812,
+  "stop": 1763536964862,
+  "steps": [
+    {
+      "name": "Before (Setup)",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536953812,
+      "stop": 1763536955179,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Given I navigate to the demo site homepage",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536955179,
+      "stop": 1763536960914,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "When I skip the initial sign-in",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536960914,
+      "stop": 1763536961551,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I submit the registration form without filling any data",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536961551,
+      "stop": 1763536963381,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Then I should see validation errors",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536963381,
+      "stop": 1763536964391,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "After (Teardown)",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536964391,
+      "stop": 1763536964862,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "labels": [
+    {
+      "name": "tag",
+      "value": "smoke"
+    },
+    {
+      "name": "tag",
+      "value": "registration"
+    },
+    {
+      "name": "tag",
+      "value": "validation"
+    },
+    {
+      "name": "suite",
+      "value": "User Registration on Demo Site"
+    },
+    {
+      "name": "feature",
+      "value": "User Registration on Demo Site"
+    },
+    {
+      "name": "parentSuite",
+      "value": "BDD Tests (Cucumber)"
+    }
+  ],
+  "links": []
+}

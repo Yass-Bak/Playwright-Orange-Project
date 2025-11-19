@@ -1,0 +1,180 @@
+{
+  "uuid": "a11802bf-d191-4bca-8f70-8fc69c5b271d",
+  "historyId": "User Registration on Demo Site:Successful registration with valid data",
+  "fullName": "User Registration on Demo Site: Successful registration with valid data",
+  "name": "Successful registration with valid data",
+  "status": "failed",
+  "statusDetails": {},
+  "stage": "finished",
+  "start": 1763536356381,
+  "stop": 1763536394525,
+  "steps": [
+    {
+      "name": "Beforeundefined",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536356381,
+      "stop": 1763536357133,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Given I navigate to the demo site homepage",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536357133,
+      "stop": 1763536362734,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "When I skip the initial sign-in",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536362734,
+      "stop": 1763536363543,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I fill in the registration form with the following details:",
+      "status": "failed",
+      "statusDetails": {
+        "message": "Error: function timed out, ensure the promise resolves within 30000 milliseconds\n    at Timeout.<anonymous> (C:\\Users\\souna\\Desktop\\Orange\\node_modules\\@cucumber\\cucumber\\src\\time.ts:52:14)\n    at listOnTimeout (node:internal/timers:608:17)\n    at processTimers (node:internal/timers:543:7)",
+        "trace": "Error: function timed out, ensure the promise resolves within 30000 milliseconds\n    at Timeout.<anonymous> (C:\\Users\\souna\\Desktop\\Orange\\node_modules\\@cucumber\\cucumber\\src\\time.ts:52:14)\n    at listOnTimeout (node:internal/timers:608:17)\n    at processTimers (node:internal/timers:543:7)"
+      },
+      "stage": "finished",
+      "start": 1763536363543,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I select gender \"Male\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I select hobbies \"Cricket\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I select skills \"APIs\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I choose a password \"SecurePass123\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I confirm the password \"SecurePass123\"",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I submit the registration form",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Then I should be redirected to the widgets page",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "And I should see the accordion widget",
+      "status": "skipped",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536393897,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    },
+    {
+      "name": "Afterundefined",
+      "status": "passed",
+      "statusDetails": {},
+      "stage": "finished",
+      "start": 1763536393897,
+      "stop": 1763536394525,
+      "steps": [],
+      "attachments": [],
+      "parameters": []
+    }
+  ],
+  "attachments": [],
+  "parameters": [],
+  "labels": [
+    {
+      "name": "tag",
+      "value": "smoke"
+    },
+    {
+      "name": "tag",
+      "value": "registration"
+    },
+    {
+      "name": "suite",
+      "value": "User Registration on Demo Site"
+    },
+    {
+      "name": "feature",
+      "value": "User Registration on Demo Site"
+    }
+  ],
+  "links": []
+}
