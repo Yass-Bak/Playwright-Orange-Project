@@ -4,21 +4,31 @@
   "main": "index.js",
   "scripts": {
     "lh:report": "npx playwright test tests/performance.spec.ts && npx open lighthouse-report.html",
-    "test": "npx playwright test",
-    "report": "node generate_report.js"
+    "test": "npm run test:playwright && npm run test:cucumber",
+    "test:playwright": "npx playwright test",
+    "test:cucumber": "cucumber-js || true && node convert-cucumber-to-allure.js",
+    "test:all": "npm run test:playwright && npm run test:cucumber && npm run report",
+    "report": "node generate_report.js",
+    "report:cucumber": "node cucumber-reporter.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@cucumber/cucumber": "^11.0.1",
     "@playwright/test": "^1.56.0",
     "@types/node": "^24.6.2",
     "allure-commandline": "^2.34.1",
+    "allure-cucumberjs": "^3.0.0-beta.2",
+    "allure-js-commons": "^3.0.0-beta.2",
     "allure-playwright": "^3.4.2",
+    "cucumber-html-reporter": "^7.2.0",
     "dotenv": "^17.2.3",
     "lighthouse": "^12.8.2",
-    "playwright-lighthouse": "^4.0.0"
+    "multiple-cucumber-html-reporter": "^3.8.0",
+    "playwright-lighthouse": "^4.0.0",
+    "ts-node": "^10.9.2"
   },
   "dependencies": {
     "mysql2": "^3.15.2"

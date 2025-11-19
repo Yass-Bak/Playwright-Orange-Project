@@ -35,8 +35,14 @@ A robust end-to-end automation framework built with Playwright, TypeScript, and 
 │   ├── RegisterPage.ts       # Registration form elements
 │   └── WidgetsPage.ts        # Widget interactions
 ├── tests/                    # Test specifications
-│   ├── demo_site.spec.ts     # Main test suite for the demo site
-│   └── ...                   # Other existing tests
+│   ├── *.spec.ts             # Playwright tests
+│   └── features/             # BDD Cucumber tests
+│       ├── demo-site/
+│       │   └── *.feature     # Gherkin scenarios
+│       └── support/
+│           ├── world.ts      # Browser context
+│           ├── hooks.ts      # Lifecycle hooks
+│           └── steps/        # Step definitions
 ├── allure-results/           # Raw test results (gitignored)
 ├── allure-report/            # Generated HTML report (gitignored)
 ├── generate_report.js        # Script to generate Allure report with history
@@ -64,17 +70,31 @@ A robust end-to-end automation framework built with Playwright, TypeScript, and 
 
 ## 🏃‍♂️ Running Tests
 
-### Run All Tests
-Executes all tests in the `tests/` directory.
+### Run All Tests (Playwright + Cucumber)
+Executes all Playwright and Cucumber tests:
 ```bash
 npm test
-# OR
-npx playwright test
+```
+
+### Run Specific Test Types
+```bash
+# Playwright tests only
+npm run test:playwright
+
+# Cucumber BDD tests only
+npm run test:cucumber
+
+# Cucumber with tags
+npm run test:cucumber -- --tags "@smoke"
 ```
 
 ### Run Specific Test File
 ```bash
+# Playwright test
 npx playwright test tests/demo_site.spec.ts
+
+# Cucumber feature
+npm run test:cucumber -- tests/features/demo-site/registration.feature
 ```
 
 ### Run with UI Mode (Headed)
@@ -82,19 +102,83 @@ npx playwright test tests/demo_site.spec.ts
 npx playwright test --ui
 ```
 
+## 🥒 BDD Testing with Cucumber
+
+This framework supports **Behavior-Driven Development (BDD)** using Cucumber with Gherkin syntax. Feature files are located in `tests/features/` alongside Playwright tests.
+
+### Run BDD Tests
+```bash
+# Run all Cucumber tests
+npm run test:cucumber
+
+# Run tests with specific tags
+npm run test:cucumber -- --tags "@smoke"
+npm run test:cucumber -- --tags "@regression"
+```
+
+### Feature Files Structure
+```
+tests/features/
+├── demo-site/
+│   └── registration.feature    # Gherkin scenarios
+└── support/
+    ├── world.ts                # Browser context management
+    ├── hooks.ts                # Before/After hooks, screenshots
+    └── steps/
+        └── demo-site-steps.ts  # Step definitions using POM
+```
+
+### Example Gherkin Scenario
+```gherkin
+Feature: User Registration
+  As a new user
+  I want to register on the demo site
+  So that I can access the application
+
+  @smoke @registration
+  Scenario: Successful registration with valid data
+    Given I navigate to the demo site homepage
+    When I skip the initial sign-in
+    And I fill in the registration form with the following details:
+      | Field      | Value                |
+      | First Name | John                 |
+      | Last Name  | Doe                  |
+      | Email      | john.doe@example.com |
+    And I select gender "Male"
+    And I submit the registration form
+    Then I should be redirected to the widgets page
+```
+
+📖 **For detailed BDD guide**, see [docs/BDD_GUIDE.md](docs/BDD_GUIDE.md)
+
+
 ## 📊 Reporting
 
-This project uses Allure for reporting. We have a custom script to ensure history is preserved between runs (enabling the Trend chart).
+This project uses Allure for unified reporting of both Playwright and Cucumber tests.
 
-### Generate and Open Report
+### Generate and Open Allure Report
 After running tests, execute:
 ```bash
 npm run report
 ```
-This will:
-1.  Copy history from the previous report (if exists).
-2.  Generate a new report in `allure-report/`.
-3.  Automatically open it in your default browser.
+This generates a comprehensive report including:
+- Playwright test results
+- Cucumber BDD test results
+- Screenshots on failure
+- Step-by-step execution details
+- Historical trends
+
+### Cucumber HTML Report
+For Cucumber-specific HTML report:
+```bash
+npm run report:cucumber
+```
+
+### Complete Workflow
+```bash
+# Run all tests and generate report
+npm run test:all
+```
 
 ## 🤖 CI/CD Pipeline
 
